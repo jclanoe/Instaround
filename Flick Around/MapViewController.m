@@ -56,7 +56,7 @@
 		[self presentModalViewController:self.loginVC animated:NO];
 	}
     else {
-        NSLog(@"CURRENT USER IS : %@", [InstagramUser currentUser].fullName);
+        NSLog(@"CURRENT USER IS : %@", [InstagramUser currentUser].username);
 		self.locationManager.distanceFilter = 100.f;
 		[self.locationManager startUpdatingLocation];
 		[self.mapView showsUserLocation];
