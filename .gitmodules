@@ -4,3 +4,6 @@
 [submodule "SDWebImage"]
 	path = SDWebImage
 	url = git://github.com/rs/SDWebImage.git
+[submodule "AQGriView"]
+	path = AQGriView
+	url = git://github.com/AlanQuatermain/AQGridView.git

@@ -56,7 +56,8 @@
 	}
     else {
         NSLog(@"CURRENT USER IS : %@", [InstagramUser currentUser].fullName);
-		[[self locationManager] startUpdatingLocation];
+		self.locationManager.distanceFilter = 100.f;
+		[self.locationManager startUpdatingLocation];
 		[self.mapView showsUserLocation];
     }
 	
@@ -96,6 +97,11 @@
 //	[[self locationManager] stopUpdatingLocation];
 }
 
+- (void)dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
@@ -129,6 +135,8 @@
 	self.currentLocation = newLocation;
 	
 	[self.mapView setCenterCoordinate:self.currentLocation.coordinate animated:YES];
+	
+	[self refreshLocation:nil];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
