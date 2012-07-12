@@ -96,7 +96,7 @@
 		[self.instagramUserMapping mapKeyPath:@"user.username" toAttribute:@"username"];
 		
 		self.searchMapping = [RKManagedObjectMapping mappingForClass:[InstagramPhoto class] inManagedObjectStore:self.objectStore];
-		self.searchMapping.primaryKeyAttribute = @"serverId";
+		self.searchMapping.primaryKeyAttribute = @"photoId";
 		[self.searchMapping mapKeyPath:@"id" toAttribute:@"photoId"];
 		[self.searchMapping mapKeyPath:@"location.latitude" toAttribute:@"latitude"];
 		[self.searchMapping mapKeyPath:@"location.longitude" toAttribute:@"longitude"];

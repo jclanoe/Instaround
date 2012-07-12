@@ -21,9 +21,13 @@
 
 @interface SearchHelper() <RKObjectLoaderDelegate, UIAlertViewDelegate>
 
+@property (strong, nonatomic) NSArray* lastLoadedPhotos;
+
 @end
 
 @implementation SearchHelper
+
+@synthesize lastLoadedPhotos = _lastLoadedPhotos;
 
 + (SearchHelper*)sharedInstance
 {
@@ -80,6 +84,7 @@
 		id object = [objects objectAtIndex:0];
 		if ([object isKindOfClass:[InstagramPhoto class]])
 		{
+			self.lastLoadedPhotos = objects;
 			[[NSNotificationCenter defaultCenter] postNotificationName:SearchHelperDidLoadPhotoNotification object:objects userInfo:nil];
 		}
 	}
