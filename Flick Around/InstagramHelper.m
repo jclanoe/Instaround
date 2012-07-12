@@ -111,6 +111,14 @@
 	objectLoader.delegate = nil;
 }
 
+- (void)unlogUser
+{
+	InstagramUser* user = [InstagramUser currentUser];
+	user.isCurrent = NO;
+	user.accessToken = nil;
+	[[RestKitHelper sharedInstance] save];
+}
+
 #pragma mark - UIAlertViewDelegate Protocol
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex

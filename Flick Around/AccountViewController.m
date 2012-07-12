@@ -10,12 +10,17 @@
 
 #import "InstagramUser.h"
 
+#import "InstagramLoginViewController.h"
+
+#import "InstagramHelper.h"
+
 @interface AccountViewController ()
 
 @end
 
 @implementation AccountViewController
 @synthesize usernameCell;
+@synthesize loginVC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +34,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
 	
 	self.usernameCell.detailTextLabel.text = [InstagramUser currentUser].username;
 }
@@ -49,7 +59,12 @@
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-	
+	if (indexPath.row == 0 && indexPath.section == 1) {
+		self.loginVC = (InstagramLoginViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"instagramLogin"];
+		[self presentModalViewController:self.loginVC animated:YES];
+		
+		[[InstagramHelper sharedInstance] unlogUser];
+	}
 }
 
 @end
