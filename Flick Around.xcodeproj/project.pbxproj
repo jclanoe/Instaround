@@ -12,7 +12,6 @@
 		4907615715AE43D800315A72 /* iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 4907615515AE43D800315A72 /* iPhone.png */; };
 		4907615815AE43D800315A72 /* iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4907615615AE43D800315A72 /* iPhone@2x.png */; };
 		4911326515A8237300237EBD /* InstagramUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4911326415A8237300237EBD /* InstagramUser.m */; };
-		4911326815A82E1300237EBD /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4911326715A82E1300237EBD /* TabBarController.m */; };
 		4911326B15A8309E00237EBD /* InstagramHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4911326A15A8309E00237EBD /* InstagramHelper.m */; };
 		4911326E15A8338200237EBD /* Instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 4911326C15A8338200237EBD /* Instagram.png */; };
 		4911326F15A8338200237EBD /* Instagram@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4911326D15A8338200237EBD /* Instagram@2x.png */; };
@@ -103,8 +102,6 @@
 		4907615615AE43D800315A72 /* iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPhone@2x.png"; path = "../../../Design/iPhone@2x.png"; sourceTree = "<group>"; };
 		4911326315A8237300237EBD /* InstagramUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramUser.h; sourceTree = "<group>"; };
 		4911326415A8237300237EBD /* InstagramUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramUser.m; sourceTree = "<group>"; };
-		4911326615A82E1300237EBD /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
-		4911326715A82E1300237EBD /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		4911326915A8309E00237EBD /* InstagramHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramHelper.h; sourceTree = "<group>"; };
 		4911326A15A8309E00237EBD /* InstagramHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramHelper.m; sourceTree = "<group>"; };
 		4911326C15A8338200237EBD /* Instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instagram.png; sourceTree = "<group>"; };
@@ -348,8 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				4911327015A834F000237EBD /* Instagram */,
-				4911326615A82E1300237EBD /* TabBarController.h */,
-				4911326715A82E1300237EBD /* TabBarController.m */,
 				49E0991315963399001EC724 /* MapViewController.h */,
 				49E0991415963399001EC724 /* MapViewController.m */,
 				49E0991A15963399001EC724 /* SecondViewController.h */,
@@ -553,7 +548,6 @@
 				4967CEBB15A26B7100F372A1 /* PhotoLocationHelper.m in Sources */,
 				4967CEBF15A2747800F372A1 /* MapAnnotation.m in Sources */,
 				4911326515A8237300237EBD /* InstagramUser.m in Sources */,
-				4911326815A82E1300237EBD /* TabBarController.m in Sources */,
 				4911326B15A8309E00237EBD /* InstagramHelper.m in Sources */,
 				4911327615A8352D00237EBD /* InstagramLoginViewController.m in Sources */,
 			);
