@@ -2,8 +2,8 @@
 //  RestKitHelper.m
 //  Flick Around
 //
-//  Created by Clem André on 7/2/12.
-//  Copyright (c) 2012 <3. All rights reserved.
+//  Created by JC on on 7/2/12.
+//  Copyright (c) 2012 MTI 2013. All rights reserved.
 //
 
 #import "RestKitHelper.h"
@@ -44,17 +44,17 @@
 	
 	if (self) {
 		
-		RKLogConfigureByName("RestKit", RKLogLevelDebug);
-		RKLogConfigureByName("RestKit/Network", RKLogLevelDebug);
-		RKLogConfigureByName("RestKit/Network/Queue", RKLogLevelDebug);
-		RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
-		RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
-		
-		// Note: any other date formatting isn't compatible with Python / Django
-		NSDateFormatter *dateFormatter = [NSDateFormatter new];
-		[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss'Z'"];
-		dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
-		[RKObjectMapping setPreferredDateFormatter:dateFormatter];
+//		RKLogConfigureByName("RestKit", RKLogLevelDebug);
+//		RKLogConfigureByName("RestKit/Network", RKLogLevelDebug);
+//		RKLogConfigureByName("RestKit/Network/Queue", RKLogLevelDebug);
+//		RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
+//		RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
+//		
+//		// Note: any other date formatting isn't compatible with Python / Django
+//		NSDateFormatter *dateFormatter = [NSDateFormatter new];
+//		[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss'Z'"];
+//		dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+//		[RKObjectMapping setPreferredDateFormatter:dateFormatter];
 		
 		//
 		// Object Store

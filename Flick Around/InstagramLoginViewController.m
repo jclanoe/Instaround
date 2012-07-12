@@ -2,8 +2,8 @@
 //  InstagramLoginViewController.m
 //  Flick Around
 //
-//  Created by Clem André on 7/7/12.
-//  Copyright (c) 2012 <3. All rights reserved.
+//  Created by JC on on 7/7/12.
+//  Copyright (c) 2012 MTI 2013. All rights reserved.
 //
 
 #import "Config.h"
@@ -31,12 +31,18 @@
     return self;
 }
 
+- (void)dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	
 	[self.activityIndicator setHidden:YES];
 	
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveAuthCode:) name:InstagramDidReceiveCodeNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveAuthError:) name:InstagramDidReceiveErrorNotification object:nil];
 }
@@ -44,7 +50,8 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
+
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  Flick Around
 //
-//  Created by Clem André on 6/23/12.
-//  Copyright (c) 2012 <3. All rights reserved.
+//  Created by JC on on 6/23/12.
+//  Copyright (c) 2012 MTI 2013. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -22,6 +22,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	[RestKitHelper sharedInstance];
+	
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 	
 	// Override point for customization after application launch.
     return YES;

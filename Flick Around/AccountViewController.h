@@ -2,8 +2,8 @@
 //  AccountViewController.h
 //  Flick Around
 //
-//  Created by Micha Mazaheri on 7/12/12.
-//  Copyright (c) 2012 <3. All rights reserved.
+//  Created by JC Lanoë on 7/12/12.
+//  Copyright (c) 2012 MTI 2013. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
