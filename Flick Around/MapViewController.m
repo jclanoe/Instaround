@@ -7,6 +7,7 @@
 //
 
 #import <MapKit/MapKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 #import "InstagramLoginViewController.h"
 #import "DetailMapViewController.h"
@@ -41,11 +42,19 @@
 {
     [super viewDidLoad];
 	
-//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(placeDidLoad:) name:PlaceHelperDidLoadPlaceNotification object:nil];
-//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(placeDidFailLoading:) name:PlaceHelperDidFailLoadingPlaceNotification object:nil];
-//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photosDidLoad:) name:PhotoHelperDidLoadPhotosNotification object:nil];
-//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoLocationDidLoad:) name:PhotoLocationHelperDidLoadLocationNotification object:nil];
-//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoLocationDidFailLoading:) name:PhotoLocationHelperDidFailLoadingLocationNotification object:nil];
+	UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+	titleLabel.backgroundColor = [UIColor clearColor];
+	[titleLabel setFont:[UIFont fontWithName:@"Lobster 1.3" size:30.0]];
+	titleLabel.textAlignment = UITextAlignmentCenter;
+	titleLabel.textColor = [UIColor whiteColor];
+	titleLabel.adjustsFontSizeToFitWidth = YES;
+	titleLabel.text = @"Plan";
+	titleLabel.layer.shadowColor = [[UIColor blackColor] CGColor];
+	titleLabel.layer.shadowOffset = CGSizeMake(0.0f, -1.0f);
+	titleLabel.layer.shadowRadius = 1.0f;
+	titleLabel.layer.shadowOpacity = 0.9f;
+	titleLabel.layer.masksToBounds = NO;
+	self.navigationItem.titleView = titleLabel;
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photosDidFailLoading:) name:SearchHelperDidFailLoadingPhotoNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveUserInfo:) name:InstagramDidReceiveUserInfoNotification object:nil];
@@ -192,7 +201,7 @@
     } 
     else
 	{
-        [mapView.userLocation setTitle:@"I am here"];
+        [mapView.userLocation setTitle:[InstagramUser currentUser].fullName];
     }
 	
     return pinView;

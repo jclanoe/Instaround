@@ -151,12 +151,12 @@
             </objects>
             <point key="canvasLocation" x="132" y="789"/>
         </scene>
-        <!--Navigation Controller - Map-->
+        <!--Navigation Controller - Plan-->
         <scene sceneID="b6G-i0-Szh">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAD-eJ-kxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Esb-Dh-h99" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="map-icon.png" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Plan" image="map-icon.png" id="7"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>

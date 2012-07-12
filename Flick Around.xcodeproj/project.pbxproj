@@ -13,6 +13,7 @@
 		4911326F15A8338200237EBD /* Instagram@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4911326D15A8338200237EBD /* Instagram@2x.png */; };
 		4911327615A8352D00237EBD /* InstagramLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4911327515A8352D00237EBD /* InstagramLoginViewController.m */; };
 		4967CEBF15A2747800F372A1 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967CEBE15A2747800F372A1 /* MapAnnotation.m */; };
+		4984349915AF1C65003B6712 /* Lobster.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4984347A15AF19F7003B6712 /* Lobster.otf */; };
 		4987289D15AEDE900099A8FE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4987289B15AEDE900099A8FE /* Default.png */; };
 		4987289E15AEDE900099A8FE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4987289C15AEDE900099A8FE /* Default@2x.png */; };
 		498728A115AEDEA80099A8FE /* iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 4987289F15AEDEA80099A8FE /* iPhone.png */; };
@@ -139,6 +140,7 @@
 		4911327515A8352D00237EBD /* InstagramLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramLoginViewController.m; sourceTree = "<group>"; };
 		4967CEBD15A2747800F372A1 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		4967CEBE15A2747800F372A1 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
+		4984347A15AF19F7003B6712 /* Lobster.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.otf; sourceTree = "<group>"; };
 		4987289B15AEDE900099A8FE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4987289C15AEDE900099A8FE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4987289F15AEDEA80099A8FE /* iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone.png; sourceTree = "<group>"; };
@@ -306,8 +308,6 @@
 		49E098EF15963399001EC724 = {
 			isa = PBXGroup;
 			children = (
-				498728D915AEFDCD0099A8FE /* ImageIO.framework */,
-				498728D615AEFDBF0099A8FE /* CoreImage.framework */,
 				49E0990415963399001EC724 /* Flick Around */,
 				49E098FD15963399001EC724 /* Frameworks */,
 				49E0992615963451001EC724 /* Dependencies */,
@@ -326,6 +326,8 @@
 		49E098FD15963399001EC724 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				498728D915AEFDCD0099A8FE /* ImageIO.framework */,
+				498728D615AEFDBF0099A8FE /* CoreImage.framework */,
 				49E0997215963850001EC724 /* CoreLocation.framework */,
 				49E099701596384B001EC724 /* MapKit.framework */,
 				49E09950159635AF001EC724 /* libxml2.dylib */,
@@ -425,6 +427,7 @@
 		49E099761596388F001EC724 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				4984347A15AF19F7003B6712 /* Lobster.otf */,
 				498728FD15AF12510099A8FE /* map-icon.png */,
 				498728FE15AF12510099A8FE /* map-icon@2x.png */,
 				4987290115AF13D50099A8FE /* diaporama.png */,
@@ -622,6 +625,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4984349915AF1C65003B6712 /* Lobster.otf in Resources */,
 				49E0990915963399001EC724 /* InfoPlist.strings in Resources */,
 				49E0991215963399001EC724 /* MainStoryboard.storyboard in Resources */,
 				49E0991715963399001EC724 /* first.png in Resources */,

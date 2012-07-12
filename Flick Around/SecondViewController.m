@@ -9,6 +9,7 @@
 #import "SecondViewController.h"
 
 #import <MapKit/MapKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 #import "InstagramLoginViewController.h"
 #import "MapViewController.h"
@@ -44,6 +45,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+	titleLabel.backgroundColor = [UIColor clearColor];
+	[titleLabel setFont:[UIFont fontWithName:@"Lobster 1.3" size:30.0]];
+	titleLabel.textAlignment = UITextAlignmentCenter;
+	titleLabel.textColor = [UIColor whiteColor];
+	titleLabel.adjustsFontSizeToFitWidth = YES;
+	titleLabel.text = @"Diaporama";
+	titleLabel.layer.shadowColor = [[UIColor blackColor] CGColor];
+	titleLabel.layer.shadowOffset = CGSizeMake(0.0f, -1.0f);
+	titleLabel.layer.shadowRadius = 1.0f;
+	titleLabel.layer.shadowOpacity = 0.9f;
+	titleLabel.layer.masksToBounds = NO;
+	self.navigationItem.titleView = titleLabel;
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photosDidLoad:) name:SearchHelperDidLoadPhotoNotification object:nil];
 	
