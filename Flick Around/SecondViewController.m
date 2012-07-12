@@ -28,19 +28,20 @@
 
 #import "AQGridView.h"
 
+#import "DetailMapViewController.h"
+
 #define GridViewCellReuseID @"GridViewCellReuseID"
 
 @interface SecondViewController () <AQGridViewDelegate, AQGridViewDataSource>
 
 - (void)photosDidLoad:(NSNotification*)notification;
 
-@property (strong, nonatomic) NSMutableArray* photos;
+- (NSArray*)photos;
 
 @end
 
 @implementation SecondViewController
 
-@synthesize photos = _photos;
 
 - (void)viewDidLoad
 {
@@ -62,13 +63,19 @@
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photosDidLoad:) name:SearchHelperDidLoadPhotoNotification object:nil];
 	
-	self.photos = [[SearchHelper sharedInstance].lastLoadedPhotos mutableCopy];
 	[(AQGridView*)self.view reloadData];
 }
 
 - (void)dealloc
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	
+	[(AQGridView*)self.view reloadData];
 }
 
 - (void)viewDidUnload
@@ -82,6 +89,11 @@
 	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (NSArray *)photos
+{
+	return [SearchHelper sharedInstance].lastLoadedPhotos;
+}
+
 #pragma mark - AQGridView Delegate / Data Source
 
 - (NSUInteger)numberOfItemsInGridView:(AQGridView *)gridView
@@ -93,7 +105,7 @@
 {
 	AQGridViewCell* cell = [gridView dequeueReusableCellWithIdentifier:GridViewCellReuseID];
 	
-	InstagramPhoto* photo = [self.photos objectAtIndex:index];
+	InstagramPhoto* photo = [self.photos count] > index ? [self.photos objectAtIndex:index] : nil;
 	
 	if (cell == nil) {
 		cell = [[AQGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 80.f, 80.f) reuseIdentifier:GridViewCellReuseID];
@@ -115,6 +127,16 @@
     return CGSizeMake(80.f, 80.f);
 }
 
+- (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index
+{
+	InstagramPhoto* photo = [self.photos count] > index ? [self.photos objectAtIndex:index] : nil;
+	if (photo) {
+		DetailMapViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"edtailMapViewControllerID"];
+		controller.imageURL = [NSURL URLWithString:photo.urlPhotoStandard];
+		[self.navigationController pushViewController:controller animated:YES];
+	}
+}
+
 
 #pragma mark - Notification Handler
 
@@ -122,11 +144,6 @@
 {
 	if (notification.object)
 	{
-		[self.photos removeAllObjects];
-		for (InstagramPhoto* photo in notification.object) {
-			[self.photos addObject:photo];
-		}
-		
 		[(AQGridView*)self.view reloadData];
 	}
 }
