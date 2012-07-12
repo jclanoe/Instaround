@@ -61,7 +61,6 @@
 		return [[InstagramHelper sharedInstance] handleOpenURL:url];
 	}
 	else {
-        NSLog(@"NO");
 		return NO;
 	}
 }

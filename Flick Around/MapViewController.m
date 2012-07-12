@@ -52,15 +52,13 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveUserInfo:) name:InstagramDidReceiveUserInfoNotification object:nil];
 	
 	if ([InstagramUser currentUser] == nil) {
-		NSLog(@"NO CURRENT USER");
-		
 		self.loginVC = (InstagramLoginViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"instagramLogin"];
 		[self presentModalViewController:self.loginVC animated:NO];
-        
-        NSLog(@"InstagramLoginViewController : %@", self.loginVC);
 	}
     else {
         NSLog(@"CURRENT USER IS : %@", [InstagramUser currentUser].fullName);
+		[[self locationManager] startUpdatingLocation];
+		[self.mapView showsUserLocation];
     }
 	
 	self.currentLocation = nil;
@@ -89,7 +87,7 @@
 {
 	if (self.hasLoadedOnce == NO)
 	{
-		[[self locationManager] startUpdatingLocation];
+//		[[self locationManager] startUpdatingLocation];
 		self.hasLoadedOnce = YES;
 	}
 }
@@ -132,12 +130,9 @@
 	self.currentLocation = newLocation;
 	
 	[self.mapView setCenterCoordinate:self.currentLocation.coordinate animated:YES];
-	
-//	NSLog(@"ZOOM LEVEL : %f", self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width);
 }
 
-- (void)locationManager:(CLLocationManager *)manager
-	   didFailWithError:(NSError *)error
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
 	
 }
@@ -171,7 +166,7 @@
 	MKPinAnnotationView *pinView = nil; 
 	if (annotation != mapView.userLocation) 
 	{
-		static NSString *defaultPinID = @"com.invasivecode.pin";
+		static NSString *defaultPinID = @"com.instaround.pin";
 		pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
 		
 		if (pinView == nil)
@@ -300,6 +295,8 @@
 - (void)didReceiveUserInfo:(NSNotification*)notification
 {
 	[self dismissModalViewControllerAnimated:YES];
+	[[self locationManager] startUpdatingLocation];
+	[self.mapView showsUserLocation];
 }
 
 @end
