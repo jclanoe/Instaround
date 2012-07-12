@@ -98,11 +98,14 @@
 		self.searchMapping = [RKManagedObjectMapping mappingForClass:[InstagramPhoto class] inManagedObjectStore:self.objectStore];
 		self.searchMapping.primaryKeyAttribute = @"serverId";
 		[self.searchMapping mapKeyPath:@"id" toAttribute:@"photoId"];
-		[self.searchMapping mapKeyPath:@"latitude" toAttribute:@"latitude"];
-		[self.searchMapping mapKeyPath:@"longitude" toAttribute:@"longitude"];
-		[self.searchMapping mapKeyPath:@"name" toAttribute:@"name"];
+		[self.searchMapping mapKeyPath:@"location.latitude" toAttribute:@"latitude"];
+		[self.searchMapping mapKeyPath:@"location.longitude" toAttribute:@"longitude"];
+		[self.searchMapping mapKeyPath:@"location.name" toAttribute:@"title"];
+		[self.searchMapping mapKeyPath:@"user.username" toAttribute:@"subtitle"];
+		[self.searchMapping mapKeyPath:@"images.standard_resolution.url" toAttribute:@"urlPhotoStandard"];
+		[self.searchMapping mapKeyPath:@"images.thumbnail.url" toAttribute:@"urlPhotoThumbnail"];
 		self.searchMapping.rootKeyPath = @"data";
-		[self.objectManager.mappingProvider setMapping:self.searchMapping forKeyPath:@"data"];
+//		[self.objectManager.mappingProvider setMapping:self.searchMapping forKeyPath:@"data"];
 	}
 	
 	return self;

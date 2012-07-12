@@ -3,8 +3,11 @@
     <entity name="InstagramPhoto" representedClassName="InstagramPhoto" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlPhotoStandard" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlPhotoThumbnail" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="InstagramUser" representedClassName="InstagramUser" syncable="YES">
         <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,6 +19,6 @@
     </entity>
     <elements>
         <element name="InstagramUser" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="InstagramPhoto" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="InstagramPhoto" positionX="160" positionY="192" width="128" height="150"/>
     </elements>
 </model>

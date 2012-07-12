@@ -16,6 +16,8 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, copy) NSString* title;
 @property (nonatomic, copy) NSString* subtitle;
+@property (nonatomic, copy) NSURL* thumbnailURL;
+@property (nonatomic, copy) NSURL* standardURL;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate;
 

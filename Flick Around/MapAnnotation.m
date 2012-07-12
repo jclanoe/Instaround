@@ -16,12 +16,12 @@
 @synthesize coordinate = _coordinate;
 @synthesize title = _title;
 @synthesize subtitle = _subtitle;
+@synthesize thumbnailURL = _thumbnailURL;
+@synthesize standardURL = _standardURL;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate
 {
 	_coordinate = coordinate;
-	_title = nil;
-	_subtitle = nil;
 	
 	return self;
 }
@@ -34,6 +34,11 @@
 - (void)setSubtitle:(NSString *)subtitle
 {
 	_subtitle = subtitle;
+}
+
+- (void)setThumbnailURL:(NSURL *)thumbnailURL
+{
+	_thumbnailURL = thumbnailURL;
 }
 
 @end

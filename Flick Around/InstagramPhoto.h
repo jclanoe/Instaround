@@ -15,7 +15,10 @@
 @property (nonatomic, retain) NSString * photoId;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * subtitle;
+@property (nonatomic, retain) NSString * urlPhotoStandard;
+@property (nonatomic, retain) NSString * urlPhotoThumbnail;
 
 - (NSString*)photoStringUrl;
 

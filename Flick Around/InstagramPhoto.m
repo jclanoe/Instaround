@@ -14,7 +14,10 @@
 @dynamic photoId;
 @dynamic latitude;
 @dynamic longitude;
-@dynamic name;
+@dynamic title;
+@dynamic subtitle;
+@dynamic urlPhotoStandard;
+@dynamic urlPhotoThumbnail;
 
 - (NSString*)photoStringUrl
 {

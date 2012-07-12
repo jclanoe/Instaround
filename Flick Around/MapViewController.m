@@ -19,6 +19,8 @@
 
 #import "MapAnnotation.h"
 
+#import "UIImageView+WebCache.h"
+
 #import "Config.h"
 
 @interface MapViewController ()
@@ -160,18 +162,23 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-	MKPinAnnotationView *pinView = nil; 
+	MKPinAnnotationView *pinView = nil;
+	MapAnnotation* mapAnnotation = (MapAnnotation*)annotation;
 	if (annotation != mapView.userLocation) 
 	{
 		static NSString *defaultPinID = @"com.instaround.pin";
 		pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
 		
 		if (pinView == nil)
-			pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID];
+			pinView = [[MKPinAnnotationView alloc] initWithAnnotation:mapAnnotation reuseIdentifier:defaultPinID];
 		
         pinView.pinColor = MKPinAnnotationColorRed; 
         pinView.canShowCallout = YES;
         pinView.animatesDrop = YES;
+		UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+		[imageView setImageWithURL:mapAnnotation.thumbnailURL];
+		pinView.leftCalloutAccessoryView = imageView;
+		pinView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     } 
     else
 	{
@@ -242,7 +249,10 @@
 		for (InstagramPhoto* photo in notification.object) {
 			CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([photo.latitude doubleValue], [photo.longitude doubleValue]);
 			MapAnnotation* annotation = [[MapAnnotation alloc] initWithCoordinate:coordinate];
-			[annotation setTitle:photo.name];
+			annotation.thumbnailURL = [NSURL URLWithString:photo.urlPhotoThumbnail];
+//			annotation.standardURL = [NSURL URLWithString:photo.urlPhotoStandard];
+			[annotation setTitle:@"Photo"];
+			[annotation setSubtitle:[NSString stringWithFormat:@"par %@", photo.subtitle]];
 			[self.mapView addAnnotation:annotation];
 		}
 	}
