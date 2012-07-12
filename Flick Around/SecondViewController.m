@@ -27,6 +27,8 @@
 
 #import "AQGridView.h"
 
+#import "DetailMapViewController.h"
+
 #define GridViewCellReuseID @"GridViewCellReuseID"
 
 @interface SecondViewController () <AQGridViewDelegate, AQGridViewDataSource>
@@ -98,6 +100,14 @@
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
 {
     return CGSizeMake(80.f, 80.f);
+}
+
+- (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index
+{
+	InstagramPhoto* photo = [self.photos objectAtIndex:index];
+	DetailMapViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"edtailMapViewControllerID"];
+	controller.imageURL = [NSURL URLWithString:photo.urlPhotoStandard];
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 
