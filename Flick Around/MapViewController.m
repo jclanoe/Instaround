@@ -9,6 +9,7 @@
 #import <MapKit/MapKit.h>
 
 #import "InstagramLoginViewController.h"
+#import "DetailMapViewController.h"
 #import "MapViewController.h"
 
 #import "InstagramHelper.h"
@@ -187,6 +188,7 @@
 		[imageView setImageWithURL:mapAnnotation.thumbnailURL];
 		pinView.leftCalloutAccessoryView = imageView;
 		pinView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+		
     } 
     else
 	{
@@ -209,6 +211,15 @@
 //	}
 //	
 //	[self.mapView setCenterCoordinate:self.currentLocation.coordinate animated:YES];
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+	MapAnnotation* annotation = (MapAnnotation*)view.annotation;
+	
+	DetailMapViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"edtailMapViewControllerID"];
+	controller.imageURL = annotation.standardURL;
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - UIGestureRecognizer Delegates Methods
@@ -258,7 +269,7 @@
 			CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([photo.latitude doubleValue], [photo.longitude doubleValue]);
 			MapAnnotation* annotation = [[MapAnnotation alloc] initWithCoordinate:coordinate];
 			annotation.thumbnailURL = [NSURL URLWithString:photo.urlPhotoThumbnail];
-//			annotation.standardURL = [NSURL URLWithString:photo.urlPhotoStandard];
+			annotation.standardURL = [NSURL URLWithString:photo.urlPhotoStandard];
 			[annotation setTitle:@"Photo"];
 			[annotation setSubtitle:[NSString stringWithFormat:@"par %@", photo.subtitle]];
 			[self.mapView addAnnotation:annotation];
