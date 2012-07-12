@@ -163,12 +163,12 @@
             </objects>
             <point key="canvasLocation" x="132" y="789"/>
         </scene>
-        <!--Navigation Controller - Plan-->
+        <!--Navigation Controller - Map-->
         <scene sceneID="b6G-i0-Szh">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAD-eJ-kxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Esb-Dh-h99" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Plan" image="first" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map-icon.png" id="7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8Jz-XN-7dc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -187,7 +187,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgp-AP-Mfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="g9d-wi-C9t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Diaporama" image="second" id="6"/>
+                    <tabBarItem key="tabBarItem" title="Diaporama" image="diaporama.png" id="6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4nV-Rj-Ux4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -205,8 +205,8 @@
     <resources>
         <image name="Default.png" width="320" height="480"/>
         <image name="Instagram.png" width="100" height="100"/>
-        <image name="first" width="16" height="16"/>
-        <image name="second" width="16" height="16"/>
+        <image name="diaporama.png" width="30" height="30"/>
+        <image name="map-icon.png" width="30" height="30"/>
     </resources>
     <classes>
         <class className="DetailMapViewController" superclassName="UIViewController">

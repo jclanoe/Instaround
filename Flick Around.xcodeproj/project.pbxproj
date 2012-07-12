@@ -22,6 +22,10 @@
 		498728D815AEFDCD0099A8FE /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498728D615AEFDBF0099A8FE /* CoreImage.framework */; };
 		498728DA15AEFDCE0099A8FE /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498728D915AEFDCD0099A8FE /* ImageIO.framework */; };
 		498728DE15AF0A590099A8FE /* DetailMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498728DD15AF0A590099A8FE /* DetailMapViewController.m */; };
+		498728FF15AF12510099A8FE /* map-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 498728FD15AF12510099A8FE /* map-icon.png */; };
+		4987290015AF12510099A8FE /* map-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498728FE15AF12510099A8FE /* map-icon@2x.png */; };
+		4987290315AF13D50099A8FE /* diaporama.png in Resources */ = {isa = PBXBuildFile; fileRef = 4987290115AF13D50099A8FE /* diaporama.png */; };
+		4987290415AF13D50099A8FE /* diaporama@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4987290215AF13D50099A8FE /* diaporama@2x.png */; };
 		49BA2F2815A1A56700659DE5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BA2F2615A1A56700659DE5 /* Model.xcdatamodeld */; };
 		49BA2F2D15A1AAB700659DE5 /* RestKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA2F2C15A1AAB700659DE5 /* RestKitHelper.m */; };
 		49BA2F3015A1ACB500659DE5 /* InstagramPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA2F2F15A1ACB500659DE5 /* InstagramPhoto.m */; };
@@ -140,6 +144,10 @@
 		498728DB15AF08160099A8FE /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		498728DC15AF0A590099A8FE /* DetailMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMapViewController.h; sourceTree = "<group>"; };
 		498728DD15AF0A590099A8FE /* DetailMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMapViewController.m; sourceTree = "<group>"; };
+		498728FD15AF12510099A8FE /* map-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-icon.png"; sourceTree = "<group>"; };
+		498728FE15AF12510099A8FE /* map-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-icon@2x.png"; sourceTree = "<group>"; };
+		4987290115AF13D50099A8FE /* diaporama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diaporama.png; sourceTree = "<group>"; };
+		4987290215AF13D50099A8FE /* diaporama@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diaporama@2x.png"; sourceTree = "<group>"; };
 		49BA2F2715A1A56700659DE5 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		49BA2F2915A1A98300659DE5 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		49BA2F2B15A1AAB700659DE5 /* RestKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestKitHelper.h; sourceTree = "<group>"; };
@@ -405,6 +413,10 @@
 		49E099761596388F001EC724 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				498728FD15AF12510099A8FE /* map-icon.png */,
+				498728FE15AF12510099A8FE /* map-icon@2x.png */,
+				4987290115AF13D50099A8FE /* diaporama.png */,
+				4987290215AF13D50099A8FE /* diaporama@2x.png */,
 				4987289F15AEDEA80099A8FE /* iPhone.png */,
 				498728A015AEDEA80099A8FE /* iPhone@2x.png */,
 				4907615015AE420000315A72 /* Launch Screen */,
@@ -589,6 +601,10 @@
 				4987289E15AEDE900099A8FE /* Default@2x.png in Resources */,
 				498728A115AEDEA80099A8FE /* iPhone.png in Resources */,
 				498728A215AEDEA80099A8FE /* iPhone@2x.png in Resources */,
+				498728FF15AF12510099A8FE /* map-icon.png in Resources */,
+				4987290015AF12510099A8FE /* map-icon@2x.png in Resources */,
+				4987290315AF13D50099A8FE /* diaporama.png in Resources */,
+				4987290415AF13D50099A8FE /* diaporama@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
