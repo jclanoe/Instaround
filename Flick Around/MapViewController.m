@@ -11,14 +11,10 @@
 #import "InstagramLoginViewController.h"
 #import "MapViewController.h"
 
-#import "PlaceHelper.h"
-#import "PhotoHelper.h"
-#import "PhotoLocationHelper.h"
 #import "InstagramHelper.h"
+#import "SearchHelper.h"
 
-#import "Place.h"
-#import "Photo.h"
-#import "PhotoLocation.h"
+#import "InstagramPhoto.h"
 #import "InstagramUser.h"
 
 #import "MapAnnotation.h"
@@ -42,14 +38,15 @@
 {
     [super viewDidLoad];
 	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(placeDidLoad:) name:PlaceHelperDidLoadPlaceNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(placeDidFailLoading:) name:PlaceHelperDidFailLoadingPlaceNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photosDidLoad:) name:PhotoHelperDidLoadPhotosNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photosDidFailLoading:) name:PhotoHelperDidFailLoadingPhotosNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoLocationDidLoad:) name:PhotoLocationHelperDidLoadLocationNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoLocationDidFailLoading:) name:PhotoLocationHelperDidFailLoadingLocationNotification object:nil];
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(placeDidLoad:) name:PlaceHelperDidLoadPlaceNotification object:nil];
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(placeDidFailLoading:) name:PlaceHelperDidFailLoadingPlaceNotification object:nil];
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photosDidLoad:) name:PhotoHelperDidLoadPhotosNotification object:nil];
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoLocationDidLoad:) name:PhotoLocationHelperDidLoadLocationNotification object:nil];
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoLocationDidFailLoading:) name:PhotoLocationHelperDidFailLoadingLocationNotification object:nil];
 	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photosDidFailLoading:) name:SearchHelperDidFailLoadingPhotoNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveUserInfo:) name:InstagramDidReceiveUserInfoNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photosDidLoad:) name:SearchHelperDidLoadPhotoNotification object:nil];
 	
 	if ([InstagramUser currentUser] == nil) {
 		self.loginVC = (InstagramLoginViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"instagramLogin"];
@@ -229,38 +226,24 @@
 	
 //	[[self locationManager] startUpdatingLocation];
 	
-	PlaceHelper* helper = [PlaceHelper sharedInstance];
-	[helper loadPlaceForCoordinate:self.currentLocation.coordinate];
+//	PlaceHelper* helper = [PlaceHelper sharedInstance];
+//	[helper loadPlaceForCoordinate:self.currentLocation.coordinate];
+	
+	SearchHelper* helper = [SearchHelper sharedInstance];
+	[helper loadSearchedPhotos:self.currentLocation.coordinate];
 }
 
 #pragma mark - Notification Handler
-
-- (void)placeDidLoad:(NSNotification *)notification
-{
-	if (notification.object)
-	{
-		Place* place = (Place*)notification.object;
-		[[PhotoHelper sharedInstance] loadPhotosForPlace:place];
-		self.reloadButton.enabled = NO;
-	}
-	else
-	{
-		self.reloadButton.enabled = YES;
-	}
-}
-
-- (void)placeDidFailLoading:(NSNotification *)notification
-{
-	NSLog(@"Place DID FAIL LOADING");
-	self.reloadButton.enabled = YES;
-}
 
 - (void)photosDidLoad:(NSNotification*)notification
 {
 	if (notification.object)
 	{
-		for (Photo* photo in notification.object) {
-			[[PhotoLocationHelper sharedInstance] loadLocationForPhoto:photo];
+		for (InstagramPhoto* photo in notification.object) {
+			CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([photo.latitude doubleValue], [photo.longitude doubleValue]);
+			MapAnnotation* annotation = [[MapAnnotation alloc] initWithCoordinate:coordinate];
+			[annotation setTitle:photo.name];
+			[self.mapView addAnnotation:annotation];
 		}
 	}
 	self.reloadButton.enabled = YES;
@@ -269,20 +252,6 @@
 - (void)photosDidFailLoading:(NSNotification*)notification
 {
 	self.reloadButton.enabled = YES;
-}
-
-- (void)photoLocationDidLoad:(NSNotification*)notification
-{
-	if ([notification.object isKindOfClass:[PhotoLocation class]])
-	{
-		PhotoLocation* location = (PhotoLocation*)notification.object;
-		CLLocationCoordinate2D coordinate = [location getCoordinate];
-		MapAnnotation* annotation = [[MapAnnotation alloc] initWithCoordinate:coordinate];
-		NSLog(@"Photo : %@", location.photo);
-		[annotation setTitle:location.photo.title];
-		[annotation setSubtitle:location.region];
-		[self.mapView addAnnotation:annotation];
-	}
 }
 
 - (void)photoLocationDidFailLoading:(NSNotification*)notification
@@ -295,8 +264,9 @@
 - (void)didReceiveUserInfo:(NSNotification*)notification
 {
 	[self dismissModalViewControllerAnimated:YES];
+	
+	[self.mapView setShowsUserLocation:YES];
 	[[self locationManager] startUpdatingLocation];
-	[self.mapView showsUserLocation];
 }
 
 @end

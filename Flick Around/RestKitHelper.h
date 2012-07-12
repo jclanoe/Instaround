@@ -30,6 +30,8 @@
 @property (nonatomic, strong) RKManagedObjectMapping* photoMapping;
 @property (nonatomic, strong) RKManagedObjectMapping* photoLocationMapping;
 @property (nonatomic, strong) RKManagedObjectMapping* infoMapping;
+
 @property (nonatomic, strong) RKManagedObjectMapping* instagramUserMapping;
+@property (nonatomic, strong) RKManagedObjectMapping* searchMapping;
 
 @end

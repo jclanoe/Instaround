@@ -22,6 +22,7 @@
 // ?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=code
 #define INSTAGRAM_AUTH @"oauth/authorize/"
 #define INSTAGRAM_ACCESS @"oauth/access_token"
+#define INSTAGRAM_SEARCH_LOCATION @"v1/locations/search"
 
 #define FLICKR_SERVER_ROOT_URL @"http://api.flickr.com/services/rest/"
 

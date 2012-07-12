@@ -12,7 +12,6 @@
 
 #import "RestKitHelper.h"
 #import "InstagramHelper.h"
-#import "PlaceHelper.h"
 
 #import "Config.h"
 

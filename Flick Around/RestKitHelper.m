@@ -12,7 +12,7 @@
 #import <RestKit/JSONKit.h>
 #import <RestKit/NSData+Base64.h>
 
-#import "Photo.h"
+#import "InstagramPhoto.h"
 #import "PhotoLocation.h"
 #import "Place.h"
 #import "InstagramUser.h"
@@ -36,7 +36,9 @@
 @synthesize photoMapping = _photoMapping;
 @synthesize photoLocationMapping = _photoLocationMapping;
 @synthesize infoMapping = _infoMapping;
+
 @synthesize instagramUserMapping = _instagramUserMapping;
+@synthesize searchMapping = _searchMapping;
 
 - (id)init
 {
@@ -95,59 +97,14 @@
 		[self.instagramUserMapping mapKeyPath:@"user.profile_picture" toAttribute:@"profilePicture"];
 		[self.instagramUserMapping mapKeyPath:@"user.username" toAttribute:@"username"];
 		
-		// Photo
-		self.photoMapping = [RKManagedObjectMapping mappingForClass:[Photo class] inManagedObjectStore:self.objectStore];
-		self.photoMapping.primaryKeyAttribute = @"photoId";
-		[self.photoMapping mapKeyPath:@"id" toAttribute:@"photoId"];
-		[self.photoMapping mapKeyPath:@"owner" toAttribute:@"ownerId"];
-		[self.photoMapping mapKeyPath:@"secret" toAttribute:@"secret"];
-		[self.photoMapping mapKeyPath:@"server" toAttribute:@"serverId"];
-		[self.photoMapping mapKeyPath:@"farm" toAttribute:@"farmId"];
-		[self.photoMapping mapKeyPath:@"title" toAttribute:@"title"];
-		self.photoMapping.rootKeyPath = @"photos.photo";
-		[self.objectManager.mappingProvider setMapping:self.photoMapping forKeyPath:@"photos.photo"];
-		
-		self.photoLocationMapping = [RKManagedObjectMapping mappingForClass:[PhotoLocation class] inManagedObjectStore:self.objectStore];
-		self.photoLocationMapping.primaryKeyAttribute = @"placeId";
-		self.photoLocationMapping.rootKeyPath = @"photo.location";
-		[self.photoLocationMapping mapKeyPath:@"place_id" toAttribute:@"placeId"];
-		[self.photoLocationMapping mapKeyPath:@"latitude" toAttribute:@"latitude"];
-		[self.photoLocationMapping mapKeyPath:@"longitude" toAttribute:@"longitude"];
-		[self.photoLocationMapping mapKeyPath:@"accuracy" toAttribute:@"accuracy"];
-		[self.photoLocationMapping mapKeyPath:@"context" toAttribute:@"context"];
-		[self.photoLocationMapping mapKeyPath:@"locality._content" toAttribute:@"locality"];
-		[self.photoLocationMapping mapKeyPath:@"county._content" toAttribute:@"county"];
-		[self.photoLocationMapping mapKeyPath:@"region._content" toAttribute:@"region"];
-		[self.photoLocationMapping mapKeyPath:@"country._content" toAttribute:@"country"];
-		[self.objectManager.mappingProvider setMapping:self.photoLocationMapping forKeyPath:@"photo.location"];
-		
-		
-		// Place
-		self.placeMapping = [RKManagedObjectMapping mappingForClass:[Place class] inManagedObjectStore:self.objectStore];
-		self.placeMapping.rootKeyPath = @"places.place";
-		self.placeMapping.primaryKeyAttribute = @"placeId";
-		[self.placeMapping mapKeyPath:@"place_id" toAttribute:@"placeId"];
-		[self.placeMapping mapKeyPath:@"latitude" toAttribute:@"latitude"];
-		[self.placeMapping mapKeyPath:@"longitude" toAttribute:@"longitude"];
-		[self.objectManager.mappingProvider setMapping:self.placeMapping forKeyPath:@"places.place"];
-		
-		//
-		// Mapping Relationships
-		//
-		
-		// Missions
-//		[self.missionMapping mapKeyPath:@"name" toRelationship:@"name" withMapping:self.localizedTextMapping];
-//		[self.missionMapping mapKeyPath:@"words" toRelationship:@"words" withMapping:self.wordMapping];
-		[self.photoLocationMapping mapKeyPath:@"photo.id" toRelationship:@"photo" withMapping:self.photoMapping];
-		
-		
-		//
-		// Serialization
-		//
-		
-		// Device
-//		self.deviceSerializationMapping = [RKManagedObjectMapping mappingForClass:[Device class] inManagedObjectStore:self.objectStore];
-//		[self.deviceSerializationMapping mapKeyPath:@"serverId" toAttribute:@"id"];
+		self.searchMapping = [RKManagedObjectMapping mappingForClass:[InstagramPhoto class] inManagedObjectStore:self.objectStore];
+		self.searchMapping.primaryKeyAttribute = @"serverId";
+		[self.searchMapping mapKeyPath:@"id" toAttribute:@"serverId"];
+		[self.searchMapping mapKeyPath:@"latitude" toAttribute:@"latitude"];
+		[self.searchMapping mapKeyPath:@"longitude" toAttribute:@"longitude"];
+		[self.searchMapping mapKeyPath:@"name" toAttribute:@"name"];
+		self.searchMapping.rootKeyPath = @"data";
+		[self.objectManager.mappingProvider setMapping:self.searchMapping forKeyPath:@"data"];
 	}
 	
 	return self;
