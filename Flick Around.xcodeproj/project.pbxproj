@@ -12,8 +12,6 @@
 		4911326E15A8338200237EBD /* Instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 4911326C15A8338200237EBD /* Instagram.png */; };
 		4911326F15A8338200237EBD /* Instagram@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4911326D15A8338200237EBD /* Instagram@2x.png */; };
 		4911327615A8352D00237EBD /* InstagramLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4911327515A8352D00237EBD /* InstagramLoginViewController.m */; };
-		4967CEB215A20A0D00F372A1 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967CEB115A20A0D00F372A1 /* Place.m */; };
-		4967CEB815A2649D00F372A1 /* PhotoLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967CEB715A2649D00F372A1 /* PhotoLocation.m */; };
 		4967CEBF15A2747800F372A1 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967CEBE15A2747800F372A1 /* MapAnnotation.m */; };
 		4987289D15AEDE900099A8FE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4987289B15AEDE900099A8FE /* Default.png */; };
 		4987289E15AEDE900099A8FE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4987289C15AEDE900099A8FE /* Default@2x.png */; };
@@ -102,10 +100,6 @@
 		4911326D15A8338200237EBD /* Instagram@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Instagram@2x.png"; sourceTree = "<group>"; };
 		4911327415A8352D00237EBD /* InstagramLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramLoginViewController.h; sourceTree = "<group>"; };
 		4911327515A8352D00237EBD /* InstagramLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramLoginViewController.m; sourceTree = "<group>"; };
-		4967CEB015A20A0D00F372A1 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
-		4967CEB115A20A0D00F372A1 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
-		4967CEB615A2649D00F372A1 /* PhotoLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLocation.h; sourceTree = "<group>"; };
-		4967CEB715A2649D00F372A1 /* PhotoLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLocation.m; sourceTree = "<group>"; };
 		4967CEBD15A2747800F372A1 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		4967CEBE15A2747800F372A1 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		4987289B15AEDE900099A8FE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -216,10 +210,6 @@
 				49BA2F2615A1A56700659DE5 /* Model.xcdatamodeld */,
 				4911326315A8237300237EBD /* InstagramUser.h */,
 				4911326415A8237300237EBD /* InstagramUser.m */,
-				4967CEB615A2649D00F372A1 /* PhotoLocation.h */,
-				4967CEB715A2649D00F372A1 /* PhotoLocation.m */,
-				4967CEB015A20A0D00F372A1 /* Place.h */,
-				4967CEB115A20A0D00F372A1 /* Place.m */,
 				49BA2F2E15A1ACB500659DE5 /* InstagramPhoto.h */,
 				49BA2F2F15A1ACB500659DE5 /* InstagramPhoto.m */,
 			);
@@ -531,8 +521,6 @@
 				49BA2F2815A1A56700659DE5 /* Model.xcdatamodeld in Sources */,
 				49BA2F2D15A1AAB700659DE5 /* RestKitHelper.m in Sources */,
 				49BA2F3015A1ACB500659DE5 /* InstagramPhoto.m in Sources */,
-				4967CEB215A20A0D00F372A1 /* Place.m in Sources */,
-				4967CEB815A2649D00F372A1 /* PhotoLocation.m in Sources */,
 				4967CEBF15A2747800F372A1 /* MapAnnotation.m in Sources */,
 				4911326515A8237300237EBD /* InstagramUser.m in Sources */,
 				4911326B15A8309E00237EBD /* InstagramHelper.m in Sources */,

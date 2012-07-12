@@ -13,8 +13,6 @@
 #import <RestKit/NSData+Base64.h>
 
 #import "InstagramPhoto.h"
-#import "PhotoLocation.h"
-#import "Place.h"
 #import "InstagramUser.h"
 
 #import "Config.h"
@@ -99,7 +97,7 @@
 		
 		self.searchMapping = [RKManagedObjectMapping mappingForClass:[InstagramPhoto class] inManagedObjectStore:self.objectStore];
 		self.searchMapping.primaryKeyAttribute = @"serverId";
-		[self.searchMapping mapKeyPath:@"id" toAttribute:@"serverId"];
+		[self.searchMapping mapKeyPath:@"id" toAttribute:@"photoId"];
 		[self.searchMapping mapKeyPath:@"latitude" toAttribute:@"latitude"];
 		[self.searchMapping mapKeyPath:@"longitude" toAttribute:@"longitude"];
 		[self.searchMapping mapKeyPath:@"name" toAttribute:@"name"];

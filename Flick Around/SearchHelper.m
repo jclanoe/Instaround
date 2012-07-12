@@ -45,11 +45,12 @@
 		loader.method = RKRequestMethodGET;
 		loader.objectMapping = [RestKitHelper sharedInstance].searchMapping;
 		NSDictionary* params = [NSDictionary dictionaryWithKeysAndObjects:
-								@"lat", [NSString stringWithFormat:@"@f", coordinate.latitude],
-								@"lng", [NSString stringWithFormat:@"@f", coordinate.longitude],
+								@"lat", [NSString stringWithFormat:@"%f", coordinate.latitude],
+								@"lng", [NSString stringWithFormat:@"%f", coordinate.longitude],
 								@"access_token", [InstagramUser currentUser].accessToken,
+								@"distance", @"5000",
 								nil];
-		NSLog(@"PARAMS : &@", params);
+		NSLog(@"PARAMS : %@", params);
 		loader.resourcePath = [loader.resourcePath stringByAppendingQueryParameters:params];
 		loader.delegate = self;
 	}];
