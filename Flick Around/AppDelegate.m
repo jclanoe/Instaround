@@ -8,13 +8,23 @@
 
 #import "AppDelegate.h"
 
+#import <CoreLocation/CoreLocation.h>
+
+#import "RestKitHelper.h"
+#import "InstagramHelper.h"
+#import "PlaceHelper.h"
+
+#import "Config.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+	[RestKitHelper sharedInstance];
+	
+	// Override point for customization after application launch.
     return YES;
 }
 							
@@ -43,6 +53,17 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([url.scheme hasPrefix:INSTAGRAM_REDIRECT_URI_PREFIX]) {
+		return [[InstagramHelper sharedInstance] handleOpenURL:url];
+	}
+	else {
+        NSLog(@"NO");
+		return NO;
+	}
 }
 
 @end
