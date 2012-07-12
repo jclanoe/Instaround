@@ -26,6 +26,8 @@
 
 @interface MapViewController ()
 
+@property (strong, nonatomic) NSDate* lastUpdatedDate;
+
 @end
 
 @implementation MapViewController
@@ -36,6 +38,7 @@
 @synthesize currentLocation = _currentLocation;
 @synthesize reloadButton = _reloadButton;
 @synthesize hasLoadedOnce = _hasLoadedOnce;
+@synthesize lastUpdatedDate = _lastUpdatedDate;
 
 - (void)viewDidLoad
 {
@@ -137,7 +140,9 @@
 	
 	[self.mapView setCenterCoordinate:self.currentLocation.coordinate animated:YES];
 	
-	[self refreshLocation:nil];
+	if (!self.lastUpdatedDate || [[NSDate date] timeIntervalSinceDate:self.lastUpdatedDate] > 10.f) {
+		[self refreshLocation:nil];
+	}
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -246,6 +251,8 @@
 - (IBAction)refreshLocation:(id)sender
 {
 	self.reloadButton.enabled = NO;
+	
+	self.lastUpdatedDate = [NSDate date];
 	
 	[self.mapView removeAnnotations:self.mapView.annotations];
 	[self.mapView setShowsUserLocation:YES];
