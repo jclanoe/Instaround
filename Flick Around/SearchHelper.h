@@ -18,4 +18,6 @@
 + (SearchHelper*)sharedInstance;
 - (void)loadSearchedPhotos:(CLLocationCoordinate2D)coordinate;
 
+@property (strong, nonatomic, readonly) NSArray* lastLoadedPhotos;
+
 @end

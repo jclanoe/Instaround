@@ -47,7 +47,8 @@
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photosDidLoad:) name:SearchHelperDidLoadPhotoNotification object:nil];
 	
-	self.photos = [NSMutableArray array];
+	self.photos = [[SearchHelper sharedInstance].lastLoadedPhotos mutableCopy];
+	[(AQGridView*)self.view reloadData];
 }
 
 - (void)dealloc
