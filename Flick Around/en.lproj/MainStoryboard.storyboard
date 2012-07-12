@@ -245,12 +245,12 @@
             </objects>
             <point key="canvasLocation" x="1179" y="1116"/>
         </scene>
-        <!--Navigation Controller - Mon compte-->
+        <!--Navigation Controller - Mon Compte-->
         <scene sceneID="2sk-Dm-odT">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpT-35-Gsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="QPK-ci-vAt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Mon compte" image="map-icon.png" id="nXL-WG-OBj"/>
+                    <tabBarItem key="tabBarItem" title="Mon Compte" image="beared.png" id="nXL-WG-OBj"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="mi1-tR-XQp">
@@ -289,6 +289,7 @@
     <resources>
         <image name="Default.png" width="320" height="480"/>
         <image name="Instagram.png" width="100" height="100"/>
+        <image name="beared.png" width="30" height="30"/>
         <image name="diaporama.png" width="30" height="30"/>
         <image name="map-icon.png" width="30" height="30"/>
     </resources>
@@ -302,6 +303,9 @@
         </class>
         <class className="AccountViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AccountViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="usernameCell" candidateClass="UITableViewCell"/>
+            </relationships>
         </class>
         <class className="DetailMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailMapViewController.h"/>
