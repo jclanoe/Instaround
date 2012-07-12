@@ -21,6 +21,7 @@
 		498728D415AEFCEB0099A8FE /* libSDWebImageARC+MKAnnotation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498728D315AEFCBF0099A8FE /* libSDWebImageARC+MKAnnotation.a */; };
 		498728D815AEFDCD0099A8FE /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498728D615AEFDBF0099A8FE /* CoreImage.framework */; };
 		498728DA15AEFDCE0099A8FE /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498728D915AEFDCD0099A8FE /* ImageIO.framework */; };
+		498728DE15AF0A590099A8FE /* DetailMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498728DD15AF0A590099A8FE /* DetailMapViewController.m */; };
 		49BA2F2815A1A56700659DE5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BA2F2615A1A56700659DE5 /* Model.xcdatamodeld */; };
 		49BA2F2D15A1AAB700659DE5 /* RestKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA2F2C15A1AAB700659DE5 /* RestKitHelper.m */; };
 		49BA2F3015A1ACB500659DE5 /* InstagramPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA2F2F15A1ACB500659DE5 /* InstagramPhoto.m */; };
@@ -137,6 +138,8 @@
 		498728D615AEFDBF0099A8FE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		498728D915AEFDCD0099A8FE /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		498728DB15AF08160099A8FE /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		498728DC15AF0A590099A8FE /* DetailMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMapViewController.h; sourceTree = "<group>"; };
+		498728DD15AF0A590099A8FE /* DetailMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMapViewController.m; sourceTree = "<group>"; };
 		49BA2F2715A1A56700659DE5 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		49BA2F2915A1A98300659DE5 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		49BA2F2B15A1AAB700659DE5 /* RestKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestKitHelper.h; sourceTree = "<group>"; };
@@ -384,6 +387,8 @@
 				49E0991415963399001EC724 /* MapViewController.m */,
 				49E0991A15963399001EC724 /* SecondViewController.h */,
 				49E0991B15963399001EC724 /* SecondViewController.m */,
+				498728DC15AF0A590099A8FE /* DetailMapViewController.h */,
+				498728DD15AF0A590099A8FE /* DetailMapViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -606,6 +611,7 @@
 				4911326B15A8309E00237EBD /* InstagramHelper.m in Sources */,
 				4911327615A8352D00237EBD /* InstagramLoginViewController.m in Sources */,
 				498728A515AEE0660099A8FE /* SearchHelper.m in Sources */,
+				498728DE15AF0A590099A8FE /* DetailMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
