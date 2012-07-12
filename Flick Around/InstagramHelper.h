@@ -16,5 +16,6 @@
 + (InstagramHelper*)sharedInstance;
 - (void)loadAccessToken:(NSString*)code;
 - (BOOL)handleOpenURL:(NSURL*)url;
+- (void)unlogUser;
 
 @end
